@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcj1fdi7ipnil" path="res://src/ui/screens/title_screen.tscn" id="3_5mgu5"]
 [ext_resource type="PackedScene" uid="uid://dj3ng2wmtqap8" path="res://src/ui/screens/options_screen.tscn" id="4_h03rr"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=757083011]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_qkuje")
 script = ExtResource("2_h03rr")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=330257845]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,10 +26,10 @@ grow_vertical = 2
 texture = ExtResource("2_qoywa")
 expand_mode = 3
 
-[node name="TitleScreen" parent="." instance=ExtResource("3_5mgu5")]
+[node name="TitleScreen" parent="." unique_id=1203483861 instance=ExtResource("3_5mgu5")]
 layout_mode = 1
 
-[node name="OptionsScreen" parent="." instance=ExtResource("4_h03rr")]
+[node name="OptionsScreen" parent="." unique_id=1046495723 instance=ExtResource("4_h03rr")]
 visible = false
 layout_mode = 1
 

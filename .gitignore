@@ -6,6 +6,7 @@ Thumbs.db
 .import
 .mono
 .godot/
+build/
 export.cfg
 export_presets.cfg
 

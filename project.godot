@@ -1,0 +1,44 @@
+; Sidescroller Godot Template
+; Reuses the shared Game Kit addons (submodules under addons/) + a 2D platformer
+; controller. See README.md.
+
+config_version=5
+
+[application]
+
+config/name="Sidescroller Godot Template"
+config/description="A 2D sidescroller starter built on the shared Godot game kits."
+run/main_scene="res://src/levels/demo_level.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://assets/sprites/duckclaw.png"
+
+[autoload]
+
+EventBus="*res://addons/core/event_bus.gd"
+GameSettings="*res://src/globals/game_settings.gd"
+SceneManager="*res://addons/core/scene_manager.gd"
+AudioManager="*res://addons/core/audio_manager.gd"
+SaveManager="*res://addons/core/save_manager.gd"
+Localization="*res://addons/core/localization.gd"
+Debug="*res://addons/core/debug_overlay.gd"
+
+[audio]
+
+buses/default_bus_layout="res://default_bus_layout.tres"
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/core/plugin.cfg", "res://addons/settings_kit/plugin.cfg", "res://addons/inventory_kit/plugin.cfg", "res://addons/components_kit/plugin.cfg", "res://addons/platformer_controller_2d/plugin.cfg")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0

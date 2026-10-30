@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://addons/platformer_controller_2d/player/player.tscn" id="1_player"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ground3.png" id="2_ground"]
+[ext_resource type="Texture2D" path="res://assets/sprites/sky0.png" id="3_sky"]
+[ext_resource type="Texture2D" path="res://assets/sprites/mountains1.png" id="4_mtn"]
+[ext_resource type="Texture2D" path="res://assets/sprites/forest2.png" id="5_forest"]
+
+[sub_resource type="RectangleShape2D" id="floor_shape"]
+size = Vector2(2400, 60)
+
+[sub_resource type="RectangleShape2D" id="plat_shape"]
+size = Vector2(260, 32)
+
+[node name="DemoLevel" type="Node2D"]
+
+[node name="Sky" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(0, -40)
+scale = Vector2(600, 320)
+texture = ExtResource("3_sky")
+
+[node name="Mountains" type="Sprite2D" parent="."]
+z_index = -90
+position = Vector2(0, 70)
+scale = Vector2(7, 7)
+texture = ExtResource("4_mtn")
+
+[node name="Forest" type="Sprite2D" parent="."]
+z_index = -80
+position = Vector2(0, 110)
+scale = Vector2(7, 7)
+texture = ExtResource("5_forest")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 220)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(18.75, 0.95)
+texture = ExtResource("2_ground")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("floor_shape")
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(-460, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform1"]
+scale = Vector2(2.03, 0.5)
+texture = ExtResource("2_ground")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("plat_shape")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(380, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+scale = Vector2(2.03, 0.5)
+texture = ExtResource("2_ground")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("plat_shape")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(0, 60)

@@ -10,3 +10,6 @@
 [submodule "addons/components_kit"]
 	path = addons/components_kit
 	url = https://github.com/duckenclaw/godot-components-kit.git
+[submodule "addons/platformer_controller_2d"]
+	path = addons/platformer_controller_2d
+	url = https://github.com/duckenclaw/godot-platformer-controller-2d.git

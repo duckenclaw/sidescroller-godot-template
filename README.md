@@ -24,12 +24,15 @@ with two platforms.
 | Action | Keys |
 |--------|------|
 | Move | A / D or ← / → |
-| Jump | Space / W / ↑ (hold for higher) |
+| Jump | Space / W / ↑ (hold for higher; wall-jump off walls) |
+| Attack | J (tap to chain a 3-hit combo) |
+| Block | K (hold) |
+| Dash / dodge roll | L (i-frames) |
 | Sprint | Shift (hold) |
 | Walk/Run toggle | Caps Lock |
-| Dash | L |
-| Crouch | S / ↓ |
 | Interact | E |
+
+Press into a wall while airborne to **wall-slide**; jump to wall-jump off it.
 
 All bindings are registered at startup and can be rebound/persisted via the
 Settings Kit.
@@ -39,8 +42,18 @@ Settings Kit.
 - **Shared kits (submodules):** `core` (services), `settings_kit` (settings +
   rebinding), `inventory_kit` (items), `components_kit` (Health, StateMachine).
 - **`platformer_controller_2d`:** a `CharacterBody2D` controller with a state
-  machine (idle / moving / jumping / falling / dashing / crouching), variable-height
-  jump with coyote time + jump buffer, a `Camera2D` follower and an `AnimatedSprite2D`.
+  machine and a **comprehensive animation controller** — idle, run, jump, fall,
+  dodge-roll, a 3-hit attack combo, block, wall-slide, hurt and death — driving the
+  14-animation **HeroKnight** character. Variable-height jump with coyote time +
+  jump buffer, a `Camera2D` follower, and Health-driven hurt/death reactions.
+
+## Credits
+
+The demo character art is **"HeroKnight" by Sven Thole**
+([sventhole.itch.io/hero-knight](https://sventhole.itch.io/hero-knight)) — free for
+use in any game project, commercial or not (do not resell the raw asset). If you
+ship a game with it, crediting Sven is appreciated. Swap it for your own art by
+replacing `assets/heroknight/` and rebuilding the `SpriteFrames`.
 
 ## Modular mechanics
 

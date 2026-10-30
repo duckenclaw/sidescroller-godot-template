@@ -15,6 +15,8 @@ const DEFAULT_BINDINGS := {
 	"dash": [KEY_L],
 	"sprint": [KEY_SHIFT],
 	"crouch": [KEY_S, KEY_DOWN],
+	"attack": [KEY_J],
+	"block": [KEY_K],
 	"interact": [KEY_E],
 	"walk_run_toggle": [KEY_CAPSLOCK],
 	"pause": [KEY_ESCAPE],
@@ -22,7 +24,7 @@ const DEFAULT_BINDINGS := {
 
 ## Actions exposed in the rebind UI and persisted.
 const REBINDABLE: Array[String] = [
-	"left", "right", "jump", "dash", "sprint", "crouch", "interact", "walk_run_toggle",
+	"left", "right", "jump", "dash", "attack", "block", "sprint", "interact", "walk_run_toggle",
 ]
 
 

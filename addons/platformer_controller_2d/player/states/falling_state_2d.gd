@@ -5,14 +5,13 @@ extends State
 var coyote_timer: float = 0.0
 
 func enter() -> void:
-	# Grant coyote time only when we walked off a ledge (not after a jump).
 	coyote_timer = 0.0 if player.is_falling_from_jump else player.config.coyote_time
 	player.is_falling_from_jump = false
+	player.play_anim("fall")
 
 func update(delta: float) -> String:
 	coyote_timer -= delta
 
-	# Coyote / buffered jump.
 	if player.jump_buffered() and coyote_timer > 0.0:
 		return "JumpingState"
 	if player.dash_pressed and player.can_dash():
@@ -22,6 +21,10 @@ func update(delta: float) -> String:
 		if absf(player.get_move_input()) > 0.01:
 			return "MovingState"
 		return "IdleState"
+
+	# Grab the wall and slide down it.
+	if player.is_on_wall() and player.can_wall_slide() and absf(player.get_move_input()) > 0.01:
+		return "WallSlideState"
 
 	var h: float = player.get_move_input()
 	if absf(h) > 0.01:

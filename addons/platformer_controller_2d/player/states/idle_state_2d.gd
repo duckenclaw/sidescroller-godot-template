@@ -2,10 +2,17 @@ extends State
 
 ## Idle - grounded, no horizontal input.
 
+func enter() -> void:
+	player.play_anim("idle")
+
 func update(delta: float) -> String:
 	if not player.is_on_floor():
 		player.is_falling_from_jump = false
 		return "FallingState"
+	if player.attack_pressed and player.can_attack():
+		return "AttackState"
+	if Input.is_action_pressed("block") and player.can_block():
+		return "BlockState"
 	if player.jump_buffered():
 		return "JumpingState"
 	if player.dash_pressed and player.can_dash():

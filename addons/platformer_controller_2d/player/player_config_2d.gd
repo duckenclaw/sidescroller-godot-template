@@ -13,7 +13,25 @@ extends Resource
 @export var enable_sprint: bool = true          ## Hold-to-sprint (faster while holding "sprint").
 @export var enable_crouch: bool = true          ## Crouch (needs a CrouchingState node).
 @export var enable_walk_run_toggle: bool = true ## Capslock toggles base speed walk<->run.
-@export var enable_dash: bool = true            ## Horizontal dash (needs a DashingState node).
+@export var enable_dash: bool = true            ## Dodge roll / horizontal dash (needs a DashingState node).
+@export var enable_attack: bool = true          ## Melee attack combo (needs an AttackState node).
+@export var enable_block: bool = true           ## Hold-to-block (needs a BlockState node).
+@export var enable_wall_slide: bool = true      ## Slide down walls + wall-jump (needs a WallSlideState node).
+@export_group("")
+
+# Combat / reactions
+@export_group("Combat")
+@export var attack_combo_window: float = 0.45   ## seconds after an attack to chain the next hit
+@export var roll_invulnerable: bool = true      ## i-frames during the dodge roll
+@export var block_damage_reduction: float = 1.0 ## 0..1, 1 = fully blocks incoming damage
+@export var hurt_stun_time: float = 0.3
+@export var hurt_knockback: float = 160.0
+@export_group("")
+
+# Wall interaction
+@export_group("Wall")
+@export var wall_slide_speed: float = 80.0      ## max fall speed while wall-sliding
+@export var wall_jump_push: float = 260.0       ## horizontal push off the wall
 @export_group("")
 
 # Horizontal movement

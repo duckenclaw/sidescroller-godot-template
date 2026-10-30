@@ -1,15 +1,23 @@
-; Sidescroller Godot Template
-; Reuses the shared Game Kit addons (submodules under addons/) + a 2D platformer
-; controller. See README.md.
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="Sidescroller Godot Template"
 config/description="A 2D sidescroller starter built on the shared Godot game kits."
 run/main_scene="res://src/levels/demo_level.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.8", "GL Compatibility")
 config/icon="res://assets/sprites/duckclaw.png"
 
 [autoload]
@@ -22,14 +30,8 @@ SaveManager="*res://addons/core/save_manager.gd"
 Localization="*res://addons/core/localization.gd"
 Debug="*res://addons/core/debug_overlay.gd"
 
-[audio]
-
-buses/default_bus_layout="res://default_bus_layout.tres"
-
 [display]
 
-window/size/viewport_width=1152
-window/size/viewport_height=648
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -39,6 +41,6 @@ enabled=PackedStringArray("res://addons/core/plugin.cfg", "res://addons/settings
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/canvas_textures/default_texture_filter=0

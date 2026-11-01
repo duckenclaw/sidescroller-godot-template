@@ -7,15 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://dnu8pb8h36rf0" path="res://assets/sprites/forest2.png" id="5_forest"]
 
 [sub_resource type="RectangleShape2D" id="floor_shape"]
-size = Vector2(2400, 60)
+size = Vector2(2304, 14)
 
 [sub_resource type="RectangleShape2D" id="plat_shape"]
-size = Vector2(260, 32)
+size = Vector2(128, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov52f"]
+size = Vector2(14, 128)
 
 [node name="DemoLevel" type="Node2D" unique_id=1669914246]
 
 [node name="Sky" type="Sprite2D" parent="." unique_id=1621650169]
 z_index = -100
+texture_repeat = 2
 position = Vector2(0, -40)
 scale = Vector2(600, 320)
 texture = ExtResource("3_sky")
@@ -33,11 +37,14 @@ scale = Vector2(7, 7)
 texture = ExtResource("5_forest")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1244147108]
-position = Vector2(0, 220)
+position = Vector2(0, 128)
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1754081688]
-scale = Vector2(18.75, 0.95)
+texture_filter = 1
+texture_repeat = 2
 texture = ExtResource("2_ground")
+region_enabled = true
+region_rect = Rect2(0, 50, 2304, 14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=771591184]
 shape = SubResource("floor_shape")
@@ -46,11 +53,22 @@ shape = SubResource("floor_shape")
 position = Vector2(-460, 90)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform1" unique_id=1152354537]
-scale = Vector2(2.03, 0.5)
 texture = ExtResource("2_ground")
+offset = Vector2(0, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=1827311272]
 shape = SubResource("plat_shape")
+
+[node name="Wall1" type="StaticBody2D" parent="." unique_id=1149878075]
+position = Vector2(-640, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall1" unique_id=1871175413]
+rotation = 1.5707964
+texture = ExtResource("2_ground")
+offset = Vector2(0, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=1930685845]
+shape = SubResource("RectangleShape2D_ov52f")
 
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1276018346]
 position = Vector2(380, 0)
